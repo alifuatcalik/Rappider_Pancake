@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{ data.id }} - {{ data.title }}</h1>
+
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Satış adedini giriniz</mat-label>
+    <input matInput placeholder="" id="adet" value="" />
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Açıklama</mat-label>
+    <textarea matInput placeholder="" id="aciklama" value=""></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="button" (click)="onClick()">
+    Kaydet
+  </button>
+</form>
