@@ -1,17 +1,42 @@
 <h1 mat-dialog-title>{{ data.id }} - {{ data.title }}</h1>
 
 <form class="example-form">
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Satış adedini giriniz</mat-label>
-    <input matInput placeholder="" id="adet" value="" />
-  </mat-form-field>
+  <div mat-dialog-content>
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Satış Adedi Giriniz</mat-label>
+      <input
+        matInput
+        placeholder="Örn: 5"
+        value="{{ data.satisAdedi }}"
+        id="adet"
+      />
+    </mat-form-field>
+  </div>
 
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Açıklama</mat-label>
-    <textarea matInput placeholder="" id="aciklama" value=""></textarea>
+    <mat-label>Açıklama Giriniz</mat-label>
+    <textarea
+      matInput
+      placeholder="Örn: Çok güzel bir ürün"
+      value="{{ data.aciklama }}"
+      id="desc"
+    ></textarea>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="button" (click)="onClick()">
-    Kaydet
-  </button>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="primary" type="button" (click)="onClick()">
+      Kaydet
+    </button>
+
+    <button
+      mat-button
+      [mat-dialog-close]="{
+        satisAdedi: data.satisAdedi,
+        aciklama: data.aciklama
+      }"
+      cdkFocusInitial
+    >
+      Kapat
+    </button>
+  </div>
 </form>

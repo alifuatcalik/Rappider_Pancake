@@ -14,8 +14,8 @@ import { EditProductDetailsComponent } from '../edit-product-details/edit-produc
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  id: number;
-  title: string;
+  _satisAdedi: Number[] = [];
+  _aciklama: string[] = [];
 
   constructor(
     private productService: ProductService,
@@ -34,24 +34,30 @@ export class ProductComponent implements OnInit {
     'brand',
     'category',
     'thumbnail',
+    'satisAdedi',
     'detail',
   ];
 
   ngOnInit(): void {
     this.productService.getProduct().subscribe((data) => {
       this.product = data;
-      console.log(this.product);
     });
   }
 
   getDetails(_id: number, _title: string) {
     const dialogRef = this.dialog.open(EditProductDetailsComponent, {
       width: '600px',
-      data: { id: _id, title: _title },
+      data: {
+        id: _id,
+        title: _title,
+        aciklama: this._aciklama[_id - 1],
+        satisAdedi: this._satisAdedi[_id - 1],
+      },
     });
 
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   console.log('Dialog result: ${result}');
-    // });
+    dialogRef.afterClosed().subscribe((result) => {
+      this._satisAdedi[_id - 1] = result.satisAdedi;
+      this._aciklama[_id - 1] = result.aciklama;
+    });
   }
 }

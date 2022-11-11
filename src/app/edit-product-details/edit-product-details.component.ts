@@ -8,6 +8,8 @@ import {
 export interface DialogData {
   id: string;
   title: string;
+  aciklama: string;
+  satisAdedi: number;
 }
 
 @Component({
@@ -16,9 +18,6 @@ export interface DialogData {
   styleUrls: ['./edit-product-details.component.css'],
 })
 export class EditProductDetailsComponent implements OnInit {
-  aciklama: string;
-  satisAdedi: number;
-
   value = 'Clear me';
   constructor(
     public dialogRef: MatDialogRef<EditProductDetailsComponent>,
@@ -28,6 +27,11 @@ export class EditProductDetailsComponent implements OnInit {
   ngOnInit(): void {}
 
   onClick(): void {
-    this.dialogRef.close();
+    this.data.satisAdedi = Number(
+      (<HTMLInputElement>document.getElementById('adet')).value
+    );
+    this.data.aciklama = (<HTMLInputElement>(
+      document.getElementById('desc')
+    )).value;
   }
 }

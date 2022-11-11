@@ -6,7 +6,7 @@ table {
   width: 150px;
   height: auto;
   margin: 5px 0;
-  text-align: left;
+  text-align: center;
 }
 
 .mat-column-id {
@@ -18,39 +18,50 @@ table {
 }
 
 .mat-column-description {
-  width: 30% !important;
+  width: 35% !important;
 }
 
 .mat-column-price {
-  width: 4% !important;
+  width: 5% !important;
   text-align: center;
 }
 
 .mat-column-discountPercentage {
-  width: 6% !important;
+  width: 5% !important;
+  text-align: center;
 }
 
 .mat-column-rating {
   width: 5% !important;
+  text-align: center;
 }
 
 .mat-column-stock {
   width: 5% !important;
+  text-align: center;
 }
 
 .mat-column-brand {
-  width: 5% !important;
+  width: 10% !important;
+  text-align: center;
 }
 
 .mat-column-category {
-  width: 10% !important;
+  width: 5% !important;
+  text-align: center;
 }
 
 .mat-column-thumbnail {
   width: 10% !important;
+  text-align: center;
+}
+
+.mat-column-satisAdedi {
+  width: 5% !important;
+  text-align: center;
 }
 
 .mat-column-detail {
-  width: 10% !important;
+  width: 5% !important;
   text-align: center;
 }
